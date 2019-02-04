@@ -8,12 +8,12 @@
 
 class deck
 {
-  private:
-    std::vector<card> p1;
-    std::vector<card> p2;
+private:
+  std::vector<card> p1;
+  std::vector<card> p2;
 
-  public:
-    deck();
+public:
+  deck();
 };
 
 #endif
