@@ -1,6 +1,7 @@
 // Card class that creates card objects with values assigned by utilizing enums
 #ifndef CARD_HPP
 #define CARD_HPP
+#include <string>
 
 enum rank
 {
@@ -32,13 +33,11 @@ private:
   suit cardSuit;
 
 public:
-  card();
-  card(rank, suit);
-  // Mutators
-  void setRank(rank);
-  void setSuit(suit);
+  card(int, int);
   // Accessors
   const rank getRank();
   const suit getSuit();
+  std::string rankToString();
+  std::string suitToString();
 };
 #endif

@@ -14,6 +14,10 @@ private:
 
 public:
   deck();
+  void distributeDeck(const std::vector<card> &);
+  void battle();
+  void displayTurnOutcome(const std::string &, const std::string &,
+                          const std::string &, const std::string &);
 };
 
 #endif
