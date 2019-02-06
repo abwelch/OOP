@@ -72,6 +72,7 @@ void deck::battle()
         }
         ++turn;
     }
+    displayWinner(p1score, p2score);
 }
 
 // Used to display all information about cards played during a hand, who won,
@@ -103,4 +104,39 @@ void deck::displayTurnOutcome(const std::string &p1rank,
 }
 
 // Function with recursive use intent for successive wars
-void deck::war(int p1position, int p2position) {}
+void deck::war(int p1position, int p2position)
+{
+    if (p1.size() == 1 || p2.size() == 1)
+    {
+        return;
+    }
+    ++p1position;
+    ++p2position;
+    if (p1[p1position].getRank() > p2[p2position].getRank())
+    {
+        p1.push_back(p2[p2position]);
+        p2.erase(p2.begin() + p2position);
+    }
+    else if (p1[p1position].getRank() < p2[p2position].getRank())
+    {
+        p2.push_back(p1[p1position]);
+        p1.erase(p1.begin() + p1position);
+    }
+    else
+    {
+        war(p1position, p2position);
+    }
+}
+
+// display winner based on which vector is empty
+void deck::displayWinner(int p1score, int p2score)
+{
+    if (p2score > p1score)
+    {
+        std::cout << "Player 2 has won the game!\n";
+    }
+    else
+    {
+        std::cout << "Player 1 has won the game!\n";
+    }
+}

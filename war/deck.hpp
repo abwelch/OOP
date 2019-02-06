@@ -20,6 +20,7 @@ public:
                           const std::string &, const std::string &, short,
                           short, short, char);
   void war(int, int);
+  void displayWinner(int, int);
 };
 
 #endif
