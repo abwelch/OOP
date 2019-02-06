@@ -1,9 +1,9 @@
 #ifndef DECK_HPP
 #define DECK_HPP
 #include "card.hpp"
-#include <cstdlib>
-#include <ctime> // Used to ensure rand() is truly random
+#include <algorithm>
 #include <iostream>
+#include <random>
 #include <vector>
 
 class deck

@@ -18,59 +18,22 @@ deck::deck()
     distributeDeck(fullDeck);
 }
 
-// Utilizes rand() to create different scenarios for how deck is distributed to
-// players
+// Utilizes shuffle on full deck and then distributes to player vectors
 void deck::distributeDeck(const std::vector<card> &fullDeck)
 {
-    unsigned seed = time(0);
-    srand(seed);
-    // Equation that allows randoms between 1 and 3 (inclusively)
-    int randomScenario = (rand() % (3 - 1 + 1)) + 1;
-    switch (randomScenario)
+    auto rng = std::default_random_engine{};
+    std::shuffle(std::begin(fullDeck), std::end(fullDeck), rng);
+    // Distribute first half of shuffled deck to p1 vector and second half to p2
+    for (int i = 0; i < fullDeck.size(); ++i)
     {
-    // Distributes first half to p1, second half p2
-    case 1:
-        for (int i = 0; i < fullDeck.size(); ++i)
+        if (i < 26)
         {
-            if (i < 26)
-            {
-                p1.push_back(fullDeck[i]);
-            }
-            else
-            {
-                p2.push_back(fullDeck[i]);
-            }
+            p1.push_back(fullDeck[i]);
         }
-        break;
-    // Distributes by alternating
-    case 2:
-        for (int i = 0; i < fullDeck.size(); ++i)
+        else
         {
-            if (i % 2 == 0)
-            {
-                p1.push_back(fullDeck[i]);
-            }
-            else
-            {
-                p2.push_back(fullDeck[i]);
-            }
+            p2.push_back(fullDeck[i]);
         }
-        break;
-        // Distributes first 25 to p2, next 25 to p1, then 1 more to each
-    case 3:
-        for (int i = 0; i < fullDeck.size() - 2; ++i)
-        {
-            if (i < 25)
-            {
-                p2.push_back(fullDeck[i]);
-            }
-            else
-            {
-                p1.push_back(fullDeck[i]);
-            }
-        }
-        p1.push_back(fullDeck[50]);
-        p2.push_back(fullDeck[51]);
     }
 }
 
