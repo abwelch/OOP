@@ -1,1 +1,0 @@
-/usr/bin/clang++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/war.dir/main.cpp.o CMakeFiles/war.dir/card.cpp.o CMakeFiles/war.dir/deck.cpp.o  -o war 
