@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iostream>
 #include <random>
+#include <iterator>
 
 class warGame
 {
@@ -13,11 +14,12 @@ class warGame
 
   public:
     warGame(deck &);
-    void battle(std::vector<card>::iterator, std::vector<card>::iterator);
+    void battle(std::vector<card>::iterator = p1.begin(), std::vector<card>::iterator = p2.begin(), int = 1);
+    void displayHand(std::vector<card>::iterator,
+                     std::vector<card>::iterator, int);
     /* void displayTurnOutcome(const std::string &, const std::string &,
                       const std::string &, const std::string &, short,
                       short, short, char);
-void displayWinner(int, int);
 */
 };
 
