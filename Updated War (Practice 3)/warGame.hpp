@@ -12,13 +12,13 @@ class warGame
     std::vector<card> p2;
 
   public:
-    void distributeDeck(deck &);
-    void battle();
+    warGame(deck &);
+    void battle(std::vector<card>::iterator, std::vector<card>::iterator);
     /* void displayTurnOutcome(const std::string &, const std::string &,
-                            const std::string &, const std::string &, short,
-                            short, short, char);
-    void displayWinner(int, int);
-    */
+                      const std::string &, const std::string &, short,
+                      short, short, char);
+void displayWinner(int, int);
+*/
 };
 
 #endif
