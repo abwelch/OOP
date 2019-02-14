@@ -1,65 +1,9 @@
 #include "card.hpp"
 
-card::card(int startRank, int startSuit)
+card::card(rank startRank, suit startSuit)
 {
-    switch (startRank)
-    {
-    case 0:
-        cardRank = TWO;
-        break;
-    case 1:
-        cardRank = THREE;
-        break;
-    case 2:
-        cardRank = FOUR;
-        break;
-    case 3:
-        cardRank = FIVE;
-        break;
-    case 4:
-        cardRank = SIX;
-        break;
-    case 5:
-        cardRank = SEVEN;
-        break;
-    case 6:
-        cardRank = EIGHT;
-        break;
-    case 7:
-        cardRank = NINE;
-        break;
-    case 8:
-        cardRank = TEN;
-        break;
-    case 9:
-        cardRank = JACK;
-        break;
-    case 10:
-        cardRank = QUEEN;
-        break;
-    case 11:
-        cardRank = KING;
-        break;
-    case 12:
-        cardRank = ACE;
-        break;
-    }
-
-    switch (startSuit)
-    {
-    case 0:
-        cardSuit = SPADE;
-        break;
-    case 1:
-        cardSuit = CLUB;
-        break;
-    case 2:
-        cardSuit = HEART;
-        break;
-    case 3:
-        cardSuit = DIAMOND;
-        break;
-    }
+    cardRank = startRank;
+    cardSuit = startSuit;
 }
 
 // Accessors

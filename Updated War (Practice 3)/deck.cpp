@@ -7,7 +7,7 @@ deck::deck()
     {
         for (int j = 0; j < 13; ++j)
         {
-            card newCard(j, i);
+            card newCard(rank(j), suit(i);
             deckVector.push_back(newCard);
         }
     }
@@ -27,7 +27,7 @@ void deck::displayDeck()
 	for (std::vector<card>::iterator beginIter = deckVector.begin();
 		beginIter < deckVector.end(); ++beginIter)
 	{
-		if (rowCOunter % 12 == 0)
+		if (rowCounter % 12 == 0)
 			std::cout << std::endl;
 
 	}

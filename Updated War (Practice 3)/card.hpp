@@ -33,7 +33,7 @@ private:
   suit cardSuit;
 
 public:
-  card(int, int);
+  card(rank, suit);
   // Accessors
   const rank getRank();
   const suit getSuit();
