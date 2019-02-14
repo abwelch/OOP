@@ -46,7 +46,7 @@ void warGame::battle(std::vector<card>::iterator p1pos,
         // Add p2's card to buttom of p1 deck
         p1.push_back(*p2pos);
         p2.erase(p2pos);
-        battle(++p1pos, ++p2pos, ++turn);
+        battle(++p1pos, p2pos, ++turn);
     }
     // p2 wins the hand
     else if (p1pos->getRank() < p2pos->getRank())
@@ -55,7 +55,7 @@ void warGame::battle(std::vector<card>::iterator p1pos,
         // Add p1's card to buttom of p2 deck
         p2.push_back(*p1pos);
         p1.erase(p1pos);
-        battle(++p1pos, ++p2pos, ++turn);
+        battle(p1pos, ++p2pos, ++turn);
     }
     // WAR
     else
@@ -70,14 +70,15 @@ void warGame::battle(std::vector<card>::iterator p1pos,
         {
             p1.push_back(*p2posTemp);
             p2.erase(p2posTemp);
+            battle(++p1pos, p2pos, ++turn);
         }
         // p2 won the war
         else
         {
             p2.push_back(*p1posTemp);
             p1.erase(p1posTemp);
+            battle(p1pos, ++p2pos, ++turn);
         }
-        battle(++p1pos, ++p2pos, ++turn);
     }
 }
 
