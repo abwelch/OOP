@@ -22,7 +22,6 @@ warGame::warGame(deck &fullDeck)
 void warGame::battle(std::vector<card>::iterator p1pos,
                      std::vector<card>::iterator p2pos, int turn)
 {
-    displayPlayerHands();
     displayHand(p1pos, p2pos, turn);
     // Recursion base case
     if (p1.empty() || p2.empty())
@@ -33,13 +32,11 @@ void warGame::battle(std::vector<card>::iterator p1pos,
     // If p1 iterator is pointing to end of p1 deck: reset to beginning
     if (p1pos == p1.end())
     {
-        std::cout << "P11111111111111111111\n";
         p1pos = p1.begin();
     }
     // If p2 iterator is pointing to end of p2 deck: reset to beginning
     if (p2pos == p2.end())
     {
-        std::cout << "p2222222222222222222222\n";
         p2pos = p2.begin();
     }
     // p1 wins the hand

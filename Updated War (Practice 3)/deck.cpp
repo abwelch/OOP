@@ -7,7 +7,7 @@ deck::deck()
     {
         for (int j = 0; j < 13; ++j)
         {
-            card newCard(rank(j), suit(i);
+            card newCard(static_cast<rank>(j), static_cast<suit>(i));
             deckVector.push_back(newCard);
         }
     }
@@ -16,20 +16,18 @@ deck::deck()
 
 void deck::shuffleDeck()
 {
-	auto rng = std::default_random_engine{};
+    auto rng = std::default_random_engine{};
     std::shuffle(std::begin(deckVector),
                  std::end(deckVector), rng);
 }
 
 void deck::displayDeck()
 {
-	int rowCounter = 0;
-	for (std::vector<card>::iterator beginIter = deckVector.begin();
-		beginIter < deckVector.end(); ++beginIter)
-	{
-		if (rowCounter % 12 == 0)
-			std::cout << std::endl;
-
-	}
-
+    int rowCounter = 0;
+    for (std::vector<card>::iterator beginIter = deckVector.begin();
+         beginIter < deckVector.end(); ++beginIter)
+    {
+        if (rowCounter % 12 == 0)
+            std::cout << std::endl;
+    }
 }
