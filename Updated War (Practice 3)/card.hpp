@@ -29,11 +29,11 @@ enum suit
 class card
 {
 private:
-  rank cardRank;
-  suit cardSuit;
+  unsigned char data;
 
 public:
-  card(rank, suit);
+  card(rank r, suit s)
+      : data(static_cast<unsigned>(s) << 4 | static_cast<unsigned>(r)) {}
   // Accessors
   const rank getRank();
   const suit getSuit();

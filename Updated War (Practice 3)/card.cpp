@@ -1,18 +1,12 @@
 #include "card.hpp"
 
-card::card(rank startRank, suit startSuit)
-{
-    cardRank = startRank;
-    cardSuit = startSuit;
-}
-
 // Accessors
-const rank card::getRank() { return cardRank; }
-const suit card::getSuit() { return cardSuit; }
+const rank card::getRank() { return static_cast<rank>(data & 0xf); }
+const suit card::getSuit() { return static_cast<suit>(data >> 4); }
 
 std::string card::rankToString()
 {
-    switch (cardRank)
+    switch (static_cast<rank>(data & 0xf))
     {
     case 0:
         return "TWO";
@@ -58,7 +52,7 @@ std::string card::rankToString()
 
 std::string card::suitToString()
 {
-    switch (cardSuit)
+    switch (static_cast<suit>(data >> 4))
     {
     case 0:
         return "SPADE";
