@@ -3,19 +3,47 @@
 
 #include "playingCard_binaryRep.hpp"
 
-// Accessors
-const rank playingCard_binaryRep::getRank()
+const Color playingCard_binaryRep::getColor()
 {
-    return static_cast<rank>(data & 0xf);
+    if (isJoker())
+    {
+        return static_cast<Color>(data & 0xf);
+    }
 }
-const suit playingCard_binaryRep::getSuit()
+
+bool playingCard_binaryRep::isJoker()
 {
-    return static_cast<suit>(data >> 4);
+    // If the bits of card object match designated bits for a joker
+    return ((data & 0b1000000) == 0b1000000);
+}
+
+const Rank playingCard_binaryRep::getRank()
+{
+
+    return static_cast<Rank>(data & 0xf);
+}
+
+const Suit playingCard_binaryRep::getSuit()
+{
+    return static_cast<Suit>(data >> 4);
+}
+
+std::string playingCard_binaryRep::colorToString()
+{
+    switch (static_cast<Color>(data & 0xf))
+    {
+    case 0:
+        return "RED";
+        break;
+    case 1:
+        return "BLACK";
+        break;
+    }
 }
 
 std::string playingCard_binaryRep::rankToString()
 {
-    switch (static_cast<rank>(data & 0xf))
+    switch (static_cast<Rank>(data & 0xf))
     {
     case 0:
         return "TWO";
@@ -61,7 +89,7 @@ std::string playingCard_binaryRep::rankToString()
 
 std::string playingCard_binaryRep::suitToString()
 {
-    switch (static_cast<suit>(data >> 4))
+    switch (static_cast<Suit>(data >> 4))
     {
     case 0:
         return "SPADE";

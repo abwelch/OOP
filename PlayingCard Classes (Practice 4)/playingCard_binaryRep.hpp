@@ -3,7 +3,7 @@
 #define PLAYINGCARD_BINARYREP_HPP
 #include <string>
 
-enum rank
+enum Rank
 {
     TWO,
     THREE,
@@ -19,7 +19,7 @@ enum rank
     KING,
     ACE
 };
-enum suit
+enum Suit
 {
     SPADE,
     CLUB,
@@ -27,7 +27,7 @@ enum suit
     DIAMOND
 };
 // Utilized for joker cards
-enum color
+enum Color
 {
     RED,
     BLACK
@@ -38,12 +38,19 @@ class playingCard_binaryRep
     unsigned char data;
 
   public:
-    playingCard_binaryRep(rank r, suit s)
+    // Constructor for standard playing cards
+    playingCard_binaryRep(Rank r, Suit s)
         : data(static_cast<unsigned>(s) << 4 | static_cast<unsigned>(r)) {}
+
+    playingCard_binaryRep(Color c) : data(0b1000000 | static_cast<unsigned>(c)) {}
     // Accessors
-    const rank getRank();
-    const suit getSuit();
+    const Rank getRank();
+    const Suit getSuit();
+    const Color getColor();
     std::string rankToString();
     std::string suitToString();
+    std::string colorToString();
+    // Joker flag
+    bool isJoker();
 };
 #endif
