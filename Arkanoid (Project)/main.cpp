@@ -1,20 +1,14 @@
-#include <SFML/Graphics.hpp>
+#include "Paddle.hpp"
 #include <time.h>
-using namespace sf;
 
-int
-main()
-{
+int main() {
   srand(time(0));
 
   RenderWindow app(VideoMode(520, 450), "Arkanoid!");
   app.setFramerateLimit(60);
 
-  Texture t1, t2, t3, t4;
-  t1.loadFromFile("images/block01.png");
-  t2.loadFromFile("images/background.jpg");
-  t3.loadFromFile("images/ball.png");
-  t4.loadFromFile("images/paddle.png");
+  // Create Paddle object
+  Paddle arkPaddle;
 
   Sprite sBackground(t2), sBall(t3), sPaddle(t4);
   sPaddle.setPosition(300, 440);
@@ -42,7 +36,7 @@ main()
     x += dx;
     for (int i = 0; i < n; i++)
       if (FloatRect(x + 3, y + 3, 6, 6)
-            .intersects(block[i].getGlobalBounds())) {
+              .intersects(block[i].getGlobalBounds())) {
         block[i].setPosition(-100, 0);
         dx = -dx;
       }
@@ -50,7 +44,7 @@ main()
     y += dy;
     for (int i = 0; i < n; i++)
       if (FloatRect(x + 3, y + 3, 6, 6)
-            .intersects(block[i].getGlobalBounds())) {
+              .intersects(block[i].getGlobalBounds())) {
         block[i].setPosition(-100, 0);
         dy = -dy;
       }
@@ -59,11 +53,6 @@ main()
       dx = -dx;
     if (y < 0 || y > 450)
       dy = -dy;
-
-    if (Keyboard::isKeyPressed(Keyboard::Right))
-      sPaddle.move(6, 0);
-    if (Keyboard::isKeyPressed(Keyboard::Left))
-      sPaddle.move(-6, 0);
 
     if (FloatRect(x, y, 12, 12).intersects(sPaddle.getGlobalBounds()))
       dy = -(rand() % 5 + 2);
