@@ -26,6 +26,12 @@ enum suit
     HEART,
     DIAMOND
 };
+// Utilized for joker cards
+enum color
+{
+    RED,
+    BLACK
+};
 class playingCard_binaryRep
 {
   private:
