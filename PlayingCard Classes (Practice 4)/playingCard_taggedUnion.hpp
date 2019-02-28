@@ -3,7 +3,7 @@
 #define PLAYINGCARD_TAGGEDUNION_HPP
 #include <string>
 
-enum rank
+enum Rank
 {
   TWO,
   THREE,
@@ -19,7 +19,7 @@ enum rank
   KING,
   ACE
 };
-enum suit
+enum Suit
 {
   SPADE,
   CLUB,
@@ -27,23 +27,36 @@ enum suit
   DIAMOND
 };
 // Utilized for joker cards
-enum color
+enum Color
 {
   RED,
   BLACK
 };
 class playingCard_taggedUnion
 {
-private:
-  unsigned char data;
+  union cardUnions {
+    struct c
+    {
+      Color cardColor;
+      const Color getColor();
+      std::string colorToString();
+    };
+    struct r
+    {
+      Rank cardRank;
+      const Rank getRank();
+      std::string rankToString();
+    };
+    struct s
+    {
+      Suit cardSuit;
+      const Suit getSuit();
+      std::string suitToString();
+    };
+  };
 
 public:
-  playingCard_taggedUnion(rank r, suit s)
-      : data(static_cast<unsigned>(s) << 4 | static_cast<unsigned>(r)) {}
-  // Accessors
-  const rank getRank();
-  const suit getSuit();
-  std::string rankToString();
-  std::string suitToString();
+  playingCard_taggedUnion(Rank, Suit);
+  playingCard_taggedUnion(Color);
 };
 #endif
