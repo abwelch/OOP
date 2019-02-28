@@ -11,6 +11,7 @@ private:
 
 public:
   Ball();
+  Sprite getSprite() { return ballSprite; }
 };
 
 #endif

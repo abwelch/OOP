@@ -1,6 +1,6 @@
 #include "Background.hpp"
 #include "Ball.hpp"
-#include "Block.hpp"
+#include "Blocky.hpp"
 #include "Paddle.hpp"
 #include "Textures.hpp"
 #include <time.h>
@@ -14,7 +14,7 @@ int main()
 
   // Create objects
   Paddle paddle;
-  Block blocks(1000);
+  Blocky blocks(1000);
   Ball ball;
   Background background;
 
@@ -61,9 +61,9 @@ int main()
     sBall.setPosition(x, y);
 
     app.clear();
-    app.draw(sBackground);
-    app.draw(sBall);
-    app.draw(sPaddle);
+    app.draw(background.getSprite());
+    app.draw(ball.getSprite());
+    app.draw(paddle.getSprite());
 
     for (int i = 0; i < n; i++)
       app.draw(block[i]);

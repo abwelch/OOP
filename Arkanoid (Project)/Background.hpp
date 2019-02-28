@@ -5,11 +5,12 @@
 
 class Background
 {
-  private:
-    Textures backgroundTexture;
-    Sprite backgroundSprite;
+private:
+  Textures backgroundTexture;
+  Sprite backgroundSprite;
 
-  public:
-    Background();
+public:
+  Background();
+  Sprite getSprite() { return backgroundSprite; }
 };
 #endif

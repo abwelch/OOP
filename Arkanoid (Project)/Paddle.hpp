@@ -2,7 +2,8 @@
 #define PADDLE_HPP
 #include "Textures.hpp"
 
-class Paddle {
+class Paddle
+{
 private:
   Textures padTexture;
   Sprite padSprite;
@@ -12,5 +13,6 @@ public:
   void paddleMovement();
   sf::FloatRect getBounds();
   void setPos(int, int);
+  Sprite getSprite() { return padSprite; }
 };
 #endif
