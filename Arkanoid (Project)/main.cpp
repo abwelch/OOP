@@ -17,12 +17,13 @@ int main()
   Blocky blocks(1000);
   Ball ball;
   Background background;
-
+  // Set default paddle position
   paddle.setPos(300, 440);
 
   float dx = 6, dy = 5;
   float x = 300, y = 300;
 
+  // continue absraction here
   while (app.isOpen())
   {
     Event e;
