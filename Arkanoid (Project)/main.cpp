@@ -1,34 +1,33 @@
+#include "Background.hpp"
+#include "Ball.hpp"
+#include "Block.hpp"
 #include "Paddle.hpp"
+#include "Textures.hpp"
 #include <time.h>
 
-int main() {
+int main()
+{
   srand(time(0));
 
   RenderWindow app(VideoMode(520, 450), "Arkanoid!");
   app.setFramerateLimit(60);
 
-  // Create Paddle object
-  Paddle arkPaddle;
+  // Create objects
+  Paddle paddle;
+  Block blocks(1000);
+  Ball ball;
+  Background background;
 
-  Sprite sBackground(t2), sBall(t3), sPaddle(t4);
-  sPaddle.setPosition(300, 440);
-
-  Sprite block[1000];
-
-  int n = 0;
-  for (int i = 1; i <= 10; i++)
-    for (int j = 1; j <= 10; j++) {
-      block[n].setTexture(t1);
-      block[n].setPosition(i * 43, j * 20);
-      n++;
-    }
+  paddle.setPos(300, 440);
 
   float dx = 6, dy = 5;
   float x = 300, y = 300;
 
-  while (app.isOpen()) {
+  while (app.isOpen())
+  {
     Event e;
-    while (app.pollEvent(e)) {
+    while (app.pollEvent(e))
+    {
       if (e.type == Event::Closed)
         app.close();
     }
@@ -36,7 +35,8 @@ int main() {
     x += dx;
     for (int i = 0; i < n; i++)
       if (FloatRect(x + 3, y + 3, 6, 6)
-              .intersects(block[i].getGlobalBounds())) {
+              .intersects(block[i].getGlobalBounds()))
+      {
         block[i].setPosition(-100, 0);
         dx = -dx;
       }
@@ -44,7 +44,8 @@ int main() {
     y += dy;
     for (int i = 0; i < n; i++)
       if (FloatRect(x + 3, y + 3, 6, 6)
-              .intersects(block[i].getGlobalBounds())) {
+              .intersects(block[i].getGlobalBounds()))
+      {
         block[i].setPosition(-100, 0);
         dy = -dy;
       }

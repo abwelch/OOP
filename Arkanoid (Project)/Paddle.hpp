@@ -11,5 +11,6 @@ public:
   Paddle();
   void paddleMovement();
   sf::FloatRect getBounds();
+  void setPos(int, int);
 };
 #endif
