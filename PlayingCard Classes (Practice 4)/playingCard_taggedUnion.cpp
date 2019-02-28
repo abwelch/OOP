@@ -2,25 +2,9 @@
 
 #include "playingCard_taggedUnion.hpp"
 
-playingCard_taggedUnion::playingCard_taggedUnion(Rank startRank, Suit startSuit)
-    : cardRank(startRank), cardSuit(startSuit) {}
-
-playingCard_taggedUnion::playingCard_taggedUnion(Color startColor)
+std::string playingCard_taggedUnion::rankToString(Rank r)
 {
-}
-// Accessors
-const Rank playingCard_taggedUnion::getRank()
-{
-    return static_cast<rank>(data & 0xf);
-}
-const Suit playingCard_taggedUnion::getSuit()
-{
-    return static_cast<suit>(data >> 4);
-}
-
-std::string playingCard_taggedUnion::rankToString()
-{
-    switch (static_cast<rank>(data & 0xf))
+    switch (r)
     {
     case 0:
         return "TWO";
@@ -64,9 +48,9 @@ std::string playingCard_taggedUnion::rankToString()
     }
 }
 
-std::string playingCard_taggedUnion::suitToString()
+std::string playingCard_taggedUnion::suitToString(Suit s)
 {
-    switch (static_cast<suit>(data >> 4))
+    switch (s)
     {
     case 0:
         return "SPADE";
@@ -81,4 +65,9 @@ std::string playingCard_taggedUnion::suitToString()
         return "DIAMOND";
         break;
     }
+}
+
+std::ostream &operator<<(std::ostream &os, Color c)
+{
+    // return os << (c == BLACK ? "B" : "R");
 }

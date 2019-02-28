@@ -1,6 +1,8 @@
 // Card class that creates card objects with values assigned by utilizing enums
 #ifndef PLAYINGCARD_TAGGEDUNION_HPP
 #define PLAYINGCARD_TAGGEDUNION_HPP
+#include <cassert>
+#include <deque>
 #include <string>
 
 enum Rank
@@ -34,29 +36,42 @@ enum Color
 };
 class playingCard_taggedUnion
 {
-  union cardUnions {
-    struct c
-    {
-      Color cardColor;
-      const Color getColor();
-      std::string colorToString();
-    };
-    struct r
-    {
-      Rank cardRank;
-      const Rank getRank();
-      std::string rankToString();
-    };
-    struct s
-    {
-      Suit cardSuit;
-      const Suit getSuit();
-      std::string suitToString();
-    };
-  };
+private:
+  Rank cardRank;
+  Suit cardSuit;
 
 public:
-  playingCard_taggedUnion(Rank, Suit);
-  playingCard_taggedUnion(Color);
+  playingCard_taggedUnion(Rank r, Suit s) : cardRank(r), cardSuit(s) {}
+  Rank getRank() const { return cardRank; }
+  Suit getSuit() const { return cardSuit; }
+  std::string rankToString(Rank r);
+  std::string suitToString(Suit s);
 };
+
+class JokerCard
+{
+public:
+  JokerCard(Color c) : cardColor(c) {}
+  Color getColor() const { return cardColor; }
+
+private:
+  Color cardColor;
+};
+
+union PlayingCardComponents {
+  PlayingCardComponents(Rank r, Suit s) : sc(r, s) {}
+
+  PlayingCardComponents(Color c) : jc(c) {}
+
+  playingCard_taggedUnion sc;
+  JokerCard jc;
+};
+
+enum PlayingCardType
+{
+  Standard,
+  Joker
+};
+
+std::ostream &operator<<(std::ostream &os, Color r);
 #endif
