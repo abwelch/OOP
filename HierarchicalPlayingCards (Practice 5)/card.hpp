@@ -10,32 +10,49 @@ card class via inheritance
 #include <cassert>
 #include <deque>
 
-enum Suit {
-  TWO,
-  THREE,
-  FOUR,
-  FIVE,
-  SIX,
-  SEVEN,
-  EIGHT,
-  NINE,
-  TEN,
-  JOKER,
-  QUEEN,
-  KING,
-  ACE,
-};
-
-enum Color {
-  Red,
-  Black,
-};
-
-class Card {
-public:
-  enum Type {
+enum Rank
+{
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN,
+    EIGHT,
+    NINE,
+    TEN,
     JOKER,
-    STANDARD,
-  };
+    QUEEN,
+    KING,
+    ACE,
+};
+
+enum Suit
+{
+    HEARTS,
+    DIAMONDS,
+    SPADES,
+    CLUBS,
+};
+
+enum Color
+{
+    Red,
+    Black,
+};
+
+class Card
+{
+  public:
+    enum Type
+    {
+        JOKER,
+        STANDARD,
+    };
+    Type cardType;
+    Card(Type n)
+    {
+        cardType = n;
+    }
 };
 #endif
