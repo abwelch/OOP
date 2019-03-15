@@ -7,6 +7,8 @@ card class via inheritance
 #ifndef CARD_HPP
 #define CARD_HPP
 
+#include <iostream>
+
 enum Rank
 {
     TWO,
@@ -34,8 +36,8 @@ enum Suit
 
 enum Color
 {
-    Red,
-    Black,
+    RED,
+    BLACK,
 };
 
 // Base Card class that joker/standard cards will be derived from.
@@ -50,6 +52,9 @@ class Card
     };
     Type cardType;
     Card(Type n) { cardType = n; };
+    Color getColor();
+    bool isStandard();
+    void printCard();
 };
 
 class StandardCard : Card
