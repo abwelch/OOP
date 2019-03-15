@@ -7,9 +7,6 @@ card class via inheritance
 #ifndef CARD_HPP
 #define CARD_HPP
 
-#include <cassert>
-#include <deque>
-
 enum Rank
 {
     TWO,
@@ -60,7 +57,13 @@ class StandardCard : Card
   public:
     Rank cardRank;
     Suit cardSuit;
-
     StandardCard(Rank r, Suit s) : Card(STANDARD), cardRank(r), cardSuit(s) {}
+};
+
+class JokerCard : Card
+{
+  public:
+    Color cardColor;
+    JokerCard(Color c) : Card(JOKER), cardColor(c) {}
 };
 #endif
