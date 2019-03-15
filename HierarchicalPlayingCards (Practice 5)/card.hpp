@@ -52,9 +52,8 @@ class Card
     };
     Type cardType;
     Card(Type n) { cardType = n; };
-    Color getColor();
+    friend std::ostream &operator<<(std::ostream &outputStream, const Card &x);
     bool isStandard();
-    void printCard();
 };
 
 class StandardCard : Card
@@ -63,6 +62,8 @@ class StandardCard : Card
     Rank cardRank;
     Suit cardSuit;
     StandardCard(Rank r, Suit s) : Card(STANDARD), cardRank(r), cardSuit(s) {}
+    friend std::ostream &operator<<(std::ostream &outputStream,
+                                    const StandardCard &x);
 };
 
 class JokerCard : Card
@@ -70,5 +71,7 @@ class JokerCard : Card
   public:
     Color cardColor;
     JokerCard(Color c) : Card(JOKER), cardColor(c) {}
+    friend std::ostream &operator<<(std::ostream &outputStream,
+                                    const JokerCard &x);
 };
 #endif
