@@ -41,6 +41,8 @@ enum Color
     Black,
 };
 
+// Base Card class that joker/standard cards will be derived from.
+// Declares the type enum that designates type of card
 class Card
 {
   public:
@@ -50,9 +52,15 @@ class Card
         STANDARD,
     };
     Type cardType;
-    Card(Type n)
-    {
-        cardType = n;
-    }
+    Card(Type n) { cardType = n; };
+};
+
+class StandardCard : Card
+{
+  public:
+    Rank cardRank;
+    Suit cardSuit;
+
+    StandardCard(Rank r, Suit s) : Card(STANDARD), cardRank(r), cardSuit(s) {}
 };
 #endif
