@@ -71,6 +71,7 @@ class JokerCard : Card
   public:
     Color cardColor;
     JokerCard(Color c) : Card(JOKER), cardColor(c) {}
+    Color getColor() { return cardColor; }
     friend std::ostream &operator<<(std::ostream &outputStream,
                                     const JokerCard &x);
 };
