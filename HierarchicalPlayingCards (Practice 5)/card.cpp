@@ -8,6 +8,20 @@ bool Card::isStandard()
         return false;
 }
 
-Color Card::getColor()
+std::ostream &operator<<(std::ostream &outputStream, const Card &x)
 {
+    outputStream << x.cardType;
+    return outputStream;
+}
+
+std::ostream &operator<<(std::ostream &outputStream, const StandardCard &x)
+{
+    outputStream << x.cardRank << " " << x.cardSuit;
+    return outputStream;
+}
+
+std::ostream &operator<<(std::ostream &outputStream, const JokerCard &x)
+{
+    outputStream << x.cardColor;
+    return outputStream;
 }
