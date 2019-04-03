@@ -1,15 +1,13 @@
-#ifndef MODELREDDITPOST_HPP
-#include MODELREDDITPOST_HPP
+#pragma once
 
 #include <string>
 
 class ModelRedditPost
 {
-private:
+  private:
 	std::string author;
 	std::string title;
-public:
-	
-}
 
-#endif
+  public:
+	ModelRedditPost();
+};
