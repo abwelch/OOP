@@ -10,6 +10,6 @@ class ModelRedditPost
 
   public:
 	ModelRedditPost();
-	std::string getAuthor();
-	std::string getTitle();
+	std::string getAuthor() const;
+	std::string getTitle() const;
 };
