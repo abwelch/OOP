@@ -4,12 +4,13 @@
 #include "Textures.hpp"
 #include <vector>
 
-class Blocky {
+class Blocky
+{
 private:
   Textures blockTexture;
   std::vector<Sprite> blockSprites;
 
 public:
-  Blocky(int);
+  Blocky(int, int &);
 };
 #endif

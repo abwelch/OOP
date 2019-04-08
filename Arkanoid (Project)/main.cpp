@@ -14,7 +14,8 @@ int main()
 
   // Create objects
   Paddle paddle;
-  Blocky blocks(1000);
+  int n = 0;
+  Blocky blocks(1000, n);
   Ball ball;
   Background background;
   // Set default paddle position
