@@ -2,6 +2,7 @@
 #define SPRITES_HPP
 
 #include "Textures.hpp"
+#include <iostream>
 
 class Sprites
 {
@@ -12,7 +13,7 @@ class Sprites
     Sprites(Textures &);
     void populateBlocks(int &, Textures &);
     void movePaddle();
-    float collision(int, int);
+    void collision(int, int, float &);
     void ballPosition(int, int);
     Sprite getBackgroundSprite()
     {

@@ -29,8 +29,10 @@ void Sprites::ballPosition(int x, int y)
     ball.setPosition(x, y);
 }
 
-float Sprites::collision(int x, int y)
+void Sprites::collision(int x, int y, float &dy)
 {
     if (FloatRect(x, y, 12, 12).intersects(paddle.getGlobalBounds()))
-        return -(rand() % 5 + 2);
+    {
+        dy = -(rand() % 5 + 2);
+    }
 }

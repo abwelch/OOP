@@ -40,7 +40,7 @@ void Instance::startGame()
         if (y < 0 || y > 450)
             dy = -dy;
         objects.movePaddle();
-        dy = objects.collision(x, y);
+        objects.collision(x, y, dy);
         app.clear();
         app.draw(objects.getBackgroundSprite());
         app.draw(objects.getBallSprite());
