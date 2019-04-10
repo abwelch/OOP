@@ -14,7 +14,7 @@ class Paddle
     void keyPressRight();
     void keyPressLeft();
     void collision(int, int, float &);
-    sf::Sprite getPaddleSprite()
+    sf::Sprite getPaddleSprite() const
     {
         return paddle;
     }

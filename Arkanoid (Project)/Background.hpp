@@ -10,7 +10,7 @@ class Background
 
   public:
     Background();
-    sf::Sprite getBackgroundSprite()
+    sf::Sprite getBackgroundSprite() const
     {
         return background;
     }

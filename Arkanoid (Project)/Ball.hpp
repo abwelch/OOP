@@ -11,7 +11,7 @@ class Ball
   public:
     Ball();
     void setPos(int, int);
-    sf::Sprite getBallSprite()
+    sf::Sprite getBallSprite() const
     {
         return ball;
     }
