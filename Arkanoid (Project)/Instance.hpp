@@ -5,7 +5,11 @@ Executes necessary functions to run an instance of Arkanoid
 #ifndef INSTANCE_HPP
 #define INSTANCE_HPP
 
-#include "Sprites.hpp"
+#include "Ball.hpp"
+#include "Blocky.hpp"
+#include "Background.hpp"
+#include "Paddle.hpp"
+
 #include <iostream>
 #include <time.h>
 
@@ -14,31 +18,16 @@ class Instance
   private:
     float x, y, dx, dy;
     int n;
-    Sprites objects;
+    Blocky blocks;
+    Ball ball;
+    Background background;
+    Paddle paddle;
 
   public:
-    Instance();
+    Instance() : x(300), y(300), dx(6), dy(5), n(0), blocks(n), ball(), background(), paddle()
+    {
+    }
     void startGame();
-    float getX() const
-    {
-        return x;
-    }
-    float getY() const
-    {
-        return y;
-    }
-    float getDX() const
-    {
-        return dx;
-    }
-    float getDY() const
-    {
-        return dy;
-    }
-    int getN() const
-    {
-        return n;
-    }
 };
 
 #endif
