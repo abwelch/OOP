@@ -13,13 +13,32 @@ class Instance
 {
   private:
     float x, y, dx, dy;
-    Textures images;
-    Sprites objects;
     int n;
+    Sprites objects;
 
   public:
     Instance();
     void startGame();
+    float getX() const
+    {
+        return x;
+    }
+    float getY() const
+    {
+        return y;
+    }
+    float getDX() const
+    {
+        return dx;
+    }
+    float getDY() const
+    {
+        return dy;
+    }
+    int getN() const
+    {
+        return n;
+    }
 };
 
 #endif

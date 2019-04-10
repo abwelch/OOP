@@ -1,7 +1,7 @@
 #include "Instance.hpp"
 #include "Sprites.hpp"
 
-Instance::Instance() : x(300), y(300), dx(6), dy(5), n(0), images(), objects(images)
+Instance::Instance() : x(300), y(300), dx(6), dy(5), n(0), objects(n)
 {
 }
 
@@ -9,7 +9,6 @@ void Instance::startGame()
 {
     RenderWindow app(VideoMode(520, 450), "Arkanoid!");
     app.setFramerateLimit(60);
-    objects.populateBlocks(n, images);
 
     while (app.isOpen())
     {

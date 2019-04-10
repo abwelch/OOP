@@ -1,8 +1,8 @@
 #ifndef SPRITES_HPP
 #define SPRITES_HPP
 
-#include "Textures.hpp"
-#include <iostream>
+#include <SFML/Graphics.hpp>
+using namespace sf;
 
 class Sprites
 {
@@ -10,8 +10,7 @@ class Sprites
     Sprite background, ball, paddle, blocks[1000];
 
   public:
-    Sprites(Textures &);
-    void populateBlocks(int &, Textures &);
+    Sprites(int &);
     void movePaddle();
     void collision(int, int, float &);
     void ballPosition(int, int);
