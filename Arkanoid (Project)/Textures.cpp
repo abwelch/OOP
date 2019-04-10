@@ -2,8 +2,12 @@
 
 Textures::Textures()
 {
-    padImage.loadFromFile("images/paddle.png");
-    ballImage.loadFromFile("images/ball.png");
-    backgroundImage.loadFromFile("images/background.jpg");
-    blockImage.loadFromFile("images/block01.png");
+    padImage = new sf::Texture;
+    padImage->loadFromFile("images/paddle.png");
+    ballImage = new sf::Texture;
+    ballImage->loadFromFile("images/ball.png");
+    backgroundImage = new sf::Texture;
+    backgroundImage->loadFromFile("images/background.jpg");
+    blockImage = new sf::Texture;
+    blockImage->loadFromFile("images/block01.png");
 }
