@@ -14,11 +14,11 @@ void Instance::startGame()
             if (e.type == sf::Event::Closed)
                 app.close();
         }
-        x += dx;
-        blocks.blockCollision(dx, x, y, n);
 
+        x += dx;
+        blocks.blockCollision(dx, x, y, n, score);
         y += dy;
-        blocks.blockCollision(dy, x, y, n);
+        blocks.blockCollision(dy, x, y, n, score);
 
         if (x < 0 || x > 520)
             dx = -dx;

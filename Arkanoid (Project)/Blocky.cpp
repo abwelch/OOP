@@ -11,7 +11,7 @@ Blocky::Blocky(int &n, sf::Texture *blockyImage)
         }
 }
 
-void Blocky::blockCollision(float &dXY, const float x, const float y, const float n)
+void Blocky::blockCollision(float &dXY, const float x, const float y, const float n, int &score)
 {
     for (int i = 0; i < n; i++)
         if (sf::FloatRect(x + 3, y + 3, 6, 6)
@@ -19,5 +19,7 @@ void Blocky::blockCollision(float &dXY, const float x, const float y, const floa
         {
             block[i].setPosition(-100, 0);
             dXY = -dXY;
+            ++score;
+            std::cout << "SCORE: " << score << std::endl;
         }
 }

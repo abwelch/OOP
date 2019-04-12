@@ -2,6 +2,7 @@
 #define BLOCKY_HPP
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class Blocky
 {
@@ -14,7 +15,7 @@ public:
   {
     return block[i];
   }
-  void blockCollision(float &, const float, const float, const float);
+  void blockCollision(float &, const float, const float, const float, int &);
 };
 
 #endif

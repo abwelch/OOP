@@ -11,7 +11,6 @@ Executes necessary functions to run an instance of Arkanoid
 #include "Paddle.hpp"
 #include "Textures.hpp"
 
-#include <iostream>
 #include <time.h>
 
 class Instance
@@ -23,11 +22,13 @@ private:
   Ball ball;
   Background background;
   Paddle paddle;
+  int score;
 
 public:
   Instance(Textures &images) : x(300), y(300), dx(6), dy(5), n(0),
                                blocks(n, images.blockImage), ball(images.ballImage),
-                               background(images.backgroundImage), paddle(images.padImage)
+                               background(images.backgroundImage), paddle(images.padImage),
+                               score(0)
   {
   }
   void startGame();
