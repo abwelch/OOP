@@ -10,3 +10,8 @@ Blocky::Blocky(int &n, sf::Texture *blockyImage)
             n++;
         }
 }
+
+void Blocky::setPos(int i)
+{
+    block[i].setPosition(-100, 0);
+}

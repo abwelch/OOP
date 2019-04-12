@@ -14,6 +14,7 @@ public:
   {
     return block[i];
   }
+  void setPos(int);
 };
 
 #endif
