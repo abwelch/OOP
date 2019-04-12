@@ -1,6 +1,6 @@
 #include "Blocky.hpp"
 
-Blocky::Blocky(int &n, sf::Texture *blockyImage)
+Blocky::Blocky(int &n, sf::Texture *blockyImage) : delBlocks(0)
 {
     for (int i = 1; i <= 10; i++)
         for (int j = 1; j <= 10; j++)
@@ -20,6 +20,7 @@ void Blocky::blockCollision(float &dXY, const float x, const float y, const floa
             block[i].setPosition(-100, 0);
             dXY = -dXY;
             ++score;
+            ++delBlocks;
             std::cout << "SCORE: " << score << std::endl;
         }
 }

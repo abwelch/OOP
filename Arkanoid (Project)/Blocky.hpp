@@ -8,6 +8,7 @@ class Blocky
 {
 private:
   sf::Sprite block[1000];
+  int delBlocks;
 
 public:
   Blocky(int &, sf::Texture *);
@@ -16,6 +17,10 @@ public:
     return block[i];
   }
   void blockCollision(float &, const float, const float, const float, int &);
+  int blocksRemoved() const
+  {
+    return delBlocks;
+  }
 };
 
 #endif

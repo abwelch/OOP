@@ -13,7 +13,7 @@ public:
   void setPos();
   void keyPressRight();
   void keyPressLeft();
-  void collision(int, int, float &);
+  void redirect(int, int, float &);
   sf::Sprite getPaddleSprite() const
   {
     return paddle;

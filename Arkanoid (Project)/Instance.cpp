@@ -42,8 +42,8 @@ void Instance::startGame()
         paddle.keyPressLeft();
         paddle.redirect(x, y, dy);
         ball.setPos(x, y);
-
         this->drawObjects(app);
+        gameComplete(app);
     }
 }
 
@@ -56,4 +56,15 @@ void Instance::drawObjects(sf::RenderWindow &app)
     for (int i = 0; i < n; i++)
         app.draw(blocks.getBlock(i));
     app.display();
+}
+
+void Instance::gameComplete(sf::RenderWindow &app)
+{
+    if (blocks.blocksRemoved() == 100)
+    {
+        std::cout << "GAME COMPLETE!\n"
+                  << "FINAL SCORE: " << score << std::endl;
+        app.close();
+        return;
+    }
 }

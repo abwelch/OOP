@@ -34,6 +34,7 @@ public:
   void difficultySetting();
   void startGame();
   void drawObjects(sf::RenderWindow &);
+  void gameComplete(sf::RenderWindow &);
 };
 
 #endif

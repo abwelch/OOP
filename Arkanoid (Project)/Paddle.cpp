@@ -22,7 +22,7 @@ void Paddle::keyPressLeft()
         paddle.move(-6, 0);
 }
 
-void Paddle::collision(int x, int y, float &dy)
+void Paddle::redirect(int x, int y, float &dy)
 {
     if (sf::FloatRect(x, y, 12, 12).intersects(paddle.getGlobalBounds()))
         dy = -(rand() % 5 + 2);
