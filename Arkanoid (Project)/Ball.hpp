@@ -9,8 +9,14 @@ private:
   sf::Sprite ball;
 
 public:
-  Ball(sf::Texture *);
-  void setPos(int, int);
+  Ball(sf::Texture *ballImage)
+  {
+    ball.setTexture(*ballImage);
+  }
+  void setPos(int x, int y)
+  {
+    ball.setPosition(x, y);
+  }
   sf::Sprite getBallSprite() const
   {
     return ball;
