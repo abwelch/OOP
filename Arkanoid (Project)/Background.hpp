@@ -9,7 +9,10 @@ private:
   sf::Sprite background;
 
 public:
-  Background(sf::Texture *);
+  Background(sf::Texture *backgroundImage)
+  {
+    background.setTexture(*backgroundImage);
+  }
   sf::Sprite getBackgroundSprite() const
   {
     return background;
