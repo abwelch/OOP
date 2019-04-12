@@ -42,13 +42,13 @@ void Instance::startGame()
         paddle.collision(x, y, dy);
         ball.setPos(x, y);
 
-        app.clear();
         this->drawObjects(app);
     }
 }
 
 void Instance::drawObjects(sf::RenderWindow &app)
 {
+    app.clear();
     app.draw(background.getBackgroundSprite());
     app.draw(ball.getBallSprite());
     app.draw(paddle.getPaddleSprite());
