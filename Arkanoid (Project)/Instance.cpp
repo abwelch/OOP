@@ -6,7 +6,6 @@ void Instance::startGame()
     sf::RenderWindow app(sf::VideoMode(520, 450), "Arkanoid!");
     app.setFramerateLimit(60);
     paddle.setPos();
-
     while (app.isOpen())
     {
         sf::Event e;
@@ -16,6 +15,7 @@ void Instance::startGame()
                 app.close();
         }
         x += dx;
+
         for (int i = 0; i < n; i++)
             if (sf::FloatRect(x + 3, y + 3, 6, 6)
                     .intersects(blocks.getBlock(i).getGlobalBounds()))
@@ -46,7 +46,6 @@ void Instance::startGame()
         app.draw(background.getBackgroundSprite());
         app.draw(ball.getBallSprite());
         app.draw(paddle.getPaddleSprite());
-
         for (int i = 0; i < n; i++)
             app.draw(blocks.getBlock(i));
 

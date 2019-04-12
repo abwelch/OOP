@@ -5,15 +5,15 @@
 
 class Background
 {
-  private:
-    sf::Sprite background;
+private:
+  sf::Sprite background;
 
-  public:
-    Background();
-    sf::Sprite getBackgroundSprite() const
-    {
-        return background;
-    }
+public:
+  Background(sf::Texture *);
+  sf::Sprite getBackgroundSprite() const
+  {
+    return background;
+  }
 };
 
 #endif

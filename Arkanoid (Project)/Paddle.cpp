@@ -1,10 +1,8 @@
 #include "Paddle.hpp"
 
-Paddle::Paddle()
+Paddle::Paddle(sf::Texture *padImage)
 {
-    sf::Texture padImage;
-    padImage.loadFromFile("images/paddle.png");
-    paddle.setTexture(padImage);
+    paddle.setTexture(*padImage);
 }
 
 void Paddle::setPos()

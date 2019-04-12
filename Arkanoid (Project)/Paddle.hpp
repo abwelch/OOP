@@ -5,19 +5,19 @@
 
 class Paddle
 {
-  private:
-    sf::Sprite paddle;
+private:
+  sf::Sprite paddle;
 
-  public:
-    Paddle();
-    void setPos();
-    void keyPressRight();
-    void keyPressLeft();
-    void collision(int, int, float &);
-    sf::Sprite getPaddleSprite() const
-    {
-        return paddle;
-    }
+public:
+  Paddle(sf::Texture *);
+  void setPos();
+  void keyPressRight();
+  void keyPressLeft();
+  void collision(int, int, float &);
+  sf::Sprite getPaddleSprite() const
+  {
+    return paddle;
+  }
 };
 
 #endif

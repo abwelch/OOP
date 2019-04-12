@@ -5,15 +5,15 @@
 
 class Blocky
 {
-  private:
-    sf::Sprite block[1000];
+private:
+  sf::Sprite block[1000];
 
-  public:
-    Blocky(int &);
-    sf::Sprite getBlock(int i)
-    {
-        return block[i];
-    }
+public:
+  Blocky(int &, sf::Texture *);
+  sf::Sprite getBlock(int i)
+  {
+    return block[i];
+  }
 };
 
 #endif

@@ -5,16 +5,16 @@
 
 class Ball
 {
-  private:
-    sf::Sprite ball;
+private:
+  sf::Sprite ball;
 
-  public:
-    Ball();
-    void setPos(int, int);
-    sf::Sprite getBallSprite() const
-    {
-        return ball;
-    }
+public:
+  Ball(sf::Texture *);
+  void setPos(int, int);
+  sf::Sprite getBallSprite() const
+  {
+    return ball;
+  }
 };
 
 #endif

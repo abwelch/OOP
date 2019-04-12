@@ -1,8 +1,6 @@
 #include "Background.hpp"
 
-Background::Background()
+Background::Background(sf::Texture *backgroundImage)
 {
-    sf::Texture backgroundImage;
-    backgroundImage.loadFromFile("images/background.jpg");
-    background.setTexture(backgroundImage);
+    background.setTexture(*backgroundImage);
 }
