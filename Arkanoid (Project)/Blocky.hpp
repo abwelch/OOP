@@ -14,7 +14,7 @@ public:
   {
     return block[i];
   }
-  void setPos(int);
+  void blockCollision(float &, const float, const float, const float);
 };
 
 #endif

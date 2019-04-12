@@ -15,22 +15,10 @@ void Instance::startGame()
                 app.close();
         }
         x += dx;
-        for (int i = 0; i < n; i++)
-            if (sf::FloatRect(x + 3, y + 3, 6, 6)
-                    .intersects(blocks.getBlock(i).getGlobalBounds()))
-            {
-                blocks.setPos(i);
-                dx = -dx;
-            }
+        blocks.blockCollision(dx, x, y, n);
 
         y += dy;
-        for (int i = 0; i < n; i++)
-            if (sf::FloatRect(x + 3, y + 3, 6, 6)
-                    .intersects(blocks.getBlock(i).getGlobalBounds()))
-            {
-                blocks.setPos(i);
-                dy = -dy;
-            }
+        blocks.blockCollision(dy, x, y, n);
 
         if (x < 0 || x > 520)
             dx = -dx;

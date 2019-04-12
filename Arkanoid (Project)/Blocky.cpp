@@ -11,7 +11,13 @@ Blocky::Blocky(int &n, sf::Texture *blockyImage)
         }
 }
 
-void Blocky::setPos(int i)
+void Blocky::blockCollision(float &dXY, const float x, const float y, const float n)
 {
-    block[i].setPosition(-100, 0);
+    for (int i = 0; i < n; i++)
+        if (sf::FloatRect(x + 3, y + 3, 6, 6)
+                .intersects(block[i].getGlobalBounds()))
+        {
+            block[i].setPosition(-100, 0);
+            dXY = -dXY;
+        }
 }
