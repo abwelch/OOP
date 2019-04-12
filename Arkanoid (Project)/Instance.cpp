@@ -1,5 +1,17 @@
 #include "Instance.hpp"
 
+void Instance::difficultySetting()
+{
+    std::cout << "Choose which mode you wish to play by entering the appropriate integer: \n"
+              << "1. EASY- no score deductions.\n"
+              << "2. MEDIUM - minus 1 from score every time ball hits the bottom.\n"
+              << "3. HARD - game will END if ball hits the bottom\n";
+    std::cin >> difficulty;
+    std::cout << "Difficulty set! Press enter to begin!\n";
+    std::cin.ignore();
+    std::cin.get();
+}
+
 void Instance::startGame()
 {
     srand(time(0));
@@ -15,6 +27,7 @@ void Instance::startGame()
                 app.close();
         }
 
+        ball.hitBottom(score, app, difficulty);
         x += dx;
         blocks.blockCollision(dx, x, y, n, score);
         y += dy;
@@ -27,7 +40,7 @@ void Instance::startGame()
 
         paddle.keyPressRight();
         paddle.keyPressLeft();
-        paddle.collision(x, y, dy);
+        paddle.redirect(x, y, dy);
         ball.setPos(x, y);
 
         this->drawObjects(app);

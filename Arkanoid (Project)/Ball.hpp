@@ -2,6 +2,7 @@
 #define BALL_HPP
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class Ball
 {
@@ -21,6 +22,7 @@ public:
   {
     return ball;
   }
+  void hitBottom(int &, sf::RenderWindow &, int);
 };
 
 #endif
