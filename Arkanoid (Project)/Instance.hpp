@@ -31,6 +31,7 @@ public:
   {
   }
   void startGame();
+  void drawObjects(sf::RenderWindow &);
 };
 
 #endif

@@ -23,6 +23,7 @@ void Instance::startGame()
                 blocks.getBlock(i).setPosition(-100, 0);
                 dx = -dx;
             }
+
         y += dy;
         for (int i = 0; i < n; i++)
             if (sf::FloatRect(x + 3, y + 3, 6, 6)
@@ -43,12 +44,16 @@ void Instance::startGame()
         ball.setPos(x, y);
 
         app.clear();
-        app.draw(background.getBackgroundSprite());
-        app.draw(ball.getBallSprite());
-        app.draw(paddle.getPaddleSprite());
-        for (int i = 0; i < n; i++)
-            app.draw(blocks.getBlock(i));
-
-        app.display();
+        this->drawObjects(app);
     }
+}
+
+void Instance::drawObjects(sf::RenderWindow &app)
+{
+    app.draw(background.getBackgroundSprite());
+    app.draw(ball.getBallSprite());
+    app.draw(paddle.getPaddleSprite());
+    for (int i = 0; i < n; i++)
+        app.draw(blocks.getBlock(i));
+    app.display();
 }
