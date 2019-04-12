@@ -11,6 +11,7 @@ struct Textures
     sf::Texture *backgroundImage;
     sf::Texture *blockImage;
     Textures();
+    ~Textures();
 };
 
 #endif

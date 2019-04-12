@@ -11,3 +11,11 @@ Textures::Textures()
     blockImage = new sf::Texture;
     blockImage->loadFromFile("images/block01.png");
 }
+
+Textures::~Textures()
+{
+    delete padImage;
+    delete ballImage;
+    delete backgroundImage;
+    delete blockImage;
+}
