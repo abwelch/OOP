@@ -9,7 +9,7 @@ Textures::Textures()
     backgroundImage = new sf::Texture;
     backgroundImage->loadFromFile("images/background.jpg");
     blockImage = new sf::Texture;
-    blockImage->loadFromFile("images/block01.png");
+    blockImage->loadFromFile("images/block04.png");
 }
 
 Textures::~Textures()
