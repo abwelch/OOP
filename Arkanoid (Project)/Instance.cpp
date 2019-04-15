@@ -60,7 +60,7 @@ void Instance::drawObjects(sf::RenderWindow &app)
 
 void Instance::gameComplete(sf::RenderWindow &app)
 {
-    if (blocks.blocksRemoved() == 100)
+    if (blocks.blocksRemoved() == 80)
     {
         std::cout << "GAME COMPLETE!\n"
                   << "FINAL SCORE: " << score << std::endl;
