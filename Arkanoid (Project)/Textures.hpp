@@ -10,6 +10,7 @@ struct Textures
     sf::Texture *ballImage;
     sf::Texture *backgroundImage;
     sf::Texture *blockImage;
+    sf::Texture *redBlockImage;
     Textures();
     ~Textures();
 };

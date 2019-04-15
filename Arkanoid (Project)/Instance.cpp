@@ -12,7 +12,7 @@ void Instance::difficultySetting()
     std::cin.get();
 }
 
-void Instance::startGame()
+void Instance::startGame(const Textures &images)
 {
     srand(time(0));
     sf::RenderWindow app(sf::VideoMode(520, 450), "Arkanoid!");
@@ -29,9 +29,9 @@ void Instance::startGame()
 
         ball.hitBottom(score, app, difficulty);
         x += dx;
-        blocks.blockCollision(dx, x, y, n, score);
+        blocks.blockCollision(dx, x, y, n, score, images.redBlockImage);
         y += dy;
-        blocks.blockCollision(dy, x, y, n, score);
+        blocks.blockCollision(dy, x, y, n, score, images.redBlockImage);
 
         if (x < 0 || x > 520)
             dx = -dx;

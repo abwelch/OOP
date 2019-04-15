@@ -11,12 +11,12 @@ private:
   int delBlocks;
 
 public:
-  Blocky(int &, sf::Texture *);
+  Blocky(int &, sf::Texture *, sf::Texture *);
   sf::Sprite getBlock(int i)
   {
     return block[i];
   }
-  void blockCollision(float &, const float, const float, const float, int &);
+  void blockCollision(float &, const float, const float, const float, int &, sf::Texture *);
   int blocksRemoved() const
   {
     return delBlocks;
