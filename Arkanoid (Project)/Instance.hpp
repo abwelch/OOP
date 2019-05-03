@@ -26,13 +26,13 @@ private:
 
 public:
   Instance(Textures &images) : x(300), y(300), dx(6), dy(5), n(0),
-                               blocks(n, images.blockImage), ball(images.ballImage),
+                               blocks(n, images.blockImage, images.redBlockImage), ball(images.ballImage),
                                background(images.backgroundImage), paddle(images.padImage),
                                score(0), difficulty(0)
   {
   }
   void difficultySetting();
-  void startGame();
+  void startGame(const Textures &);
   void drawObjects(sf::RenderWindow &);
   void gameComplete(sf::RenderWindow &);
 };

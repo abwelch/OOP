@@ -6,6 +6,6 @@ int main()
   Textures images;
   Instance arkGame(images);
   arkGame.difficultySetting();
-  arkGame.startGame();
+  arkGame.startGame(images);
   return 0;
 }
