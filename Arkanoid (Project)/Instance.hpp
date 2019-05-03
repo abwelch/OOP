@@ -8,9 +8,9 @@ Executes necessary functions to run an instance of Arkanoid
 #include "Background.hpp"
 #include "Ball.hpp"
 #include "Blocky.hpp"
+#include "Events.hpp"
 #include "Paddle.hpp"
 #include "Textures.hpp"
-
 #include <time.h>
 
 class Instance {
